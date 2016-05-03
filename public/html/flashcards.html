@@ -1,5 +1,5 @@
 <div class="container">
-    <form ng-if="editFlashCard" ng-submit='saveEditedFlashCard()'>
+    <form ng-show="editFlashCard" ng-if='formHide' ng-submit='saveEditedFlashCard()'>
         <h2 class='text-center'>Edit flashcard</h2>
         <div class="form-group">
             <label for="">category</label>
@@ -13,14 +13,26 @@
             <label for="">answer</label>
             <textarea class="form-control" rows="5" id="comment" ng-model='editFlashCard.answer' ></textarea>
         </div>
-        <button type='submit' class='btn btn-primary submit'>Save Edit</button>
+        <button  class='btn btn-default submit' ng-click="hideMyForm()">Cancel</button>
+        <button type='submit' class='btn btn-primary '>Save Edit</button>
     </form>
 </br>
 </br>
-    <div ng-repeat='flashcard in flashcards' class='flashContainer'>
-        <p>Category: {{flashcard.category}}</p>
-        <p>Question: {{flashcard.question}}</p>
-        <p>Answer: {{flashcard.answer}}</p>
+    <div class="form-group">
+        <label for="">category</label>
+        <select class="selectpicker col-sm-12" ng-model ='selector' required>
+          <option>Angular</option>
+          <option>History</option>
+          <option>Geography</option>
+          <option>General Knowledge</option>
+          <option>English</option>
+        </select>
+    </div>
+</br>
+    <div ng-repeat='flashcard in flashcards | filter:selector'   class='flashContainer'>
+        <p><span>Category:</span> {{flashcard.category}}</p>
+        <p><span>Question:</span>{{flashcard.question}}</p>
+        <p><span>Answer:</span>{{flashcard.answer}}</p>
         <button type="button" class="btn btn-primary btn-md edit" ng-click="editCard(flashcard)">
             <span class="glyphicon glyphicon-edit"></span>
         </button>

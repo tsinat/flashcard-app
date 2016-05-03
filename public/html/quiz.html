@@ -14,9 +14,9 @@
         <button type='submit' class='btn btn-primary checkAnswer'>Start Quiz</button>
         <!-- <button ng-if='quizCategory' type='submit' class='btn btn-success checkAnswer'>Show Answer</button> -->
     </form>
-    <div ng-hide='!quizCategory' class='quizCard'>
-        <p>Question: {{currentCategory.question}}</p>
-        <p ng-hide='myAnswer'>Answer: {{currentCategory.answer}}</p>
+    <div class='quizCard'>
+        <p><span>Question:</span> {{currentCategory.question}}</p>
+        <p ng-hide='myAnswer'><span>Answer:</span> {{currentCategory.answer}}</p>
         <button ng-show='currentCategory' type="button" class="btn btn-primary btn-md edit" ng-click='toggleAnswer()'>Show Answer </button>
         <button ng-hide='myAnswer' type="button" class="btn btn-primary btn-md edit" ng-click='startQuiz(quizCategory); toggleAnswer() '>Next </button>
     </div>

@@ -54,6 +54,15 @@ app.controller('falshcardCtrl', function($scope, Flashcard) {
                 console.log("err:", err);
             });
     }
+    $scope.formHide = true;
+    $scope.hideMyForm = () => {
+        if($scope.formHide){
+            $scope.formHide = false;
+        }
+        else{
+            $scope.formHide = true;
+        }
+    }
 });
 app.controller('quizCtrl', function($scope, Flashcard) {
     $scope.startQuiz = category => {
