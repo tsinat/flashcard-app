@@ -17,12 +17,22 @@ router.get('/', (req, res) => {
     });
 });
 router.get('/:id', (req,res) => {
-
     Flashcard.findById(req.params.id, (err, flashcard) => {
         if(err){
             res.status(400).send(err);
         }else{
             res.send(flashcard);
+        }
+    });
+});
+router.get('/categories/:category', (req,res) => {
+    console.log(req.params.category);
+    Flashcard.find({'category': req.params.category}, (err, flashcards) => {
+        if(err){
+            res.status(400).send(err);
+        }else{
+            console.log('result:',flashcards);
+            res.send(flashcards);
         }
     });
 });
@@ -38,6 +48,7 @@ router.delete('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+    console.log(req.body);
     var flashcard = new Flashcard(req.body);
     flashcard.save((err, savedFlashcard) =>{
         if(err){

@@ -1,0 +1,31 @@
+<div class="container">
+    <form ng-if="editFlashCard" ng-submit='saveEditedFlashCard()'>
+        <h2 class='text-center'>Edit flashcard</h2>
+        <div class="form-group">
+            <label for="">category</label>
+            <input type="text" class='form-control' ng-model='editFlashCard.category' >
+        </div>
+        <div class="form-group">
+            <label for="">question</label>
+            <input type="text" class='form-control' ng-model='editFlashCard.question' >
+        </div>
+        <div class="form-group">
+            <label for="">answer</label>
+            <textarea class="form-control" rows="5" id="comment" ng-model='editFlashCard.answer' ></textarea>
+        </div>
+        <button type='submit' class='btn btn-primary submit'>Save Edit</button>
+    </form>
+</br>
+</br>
+    <div ng-repeat='flashcard in flashcards' class='flashContainer'>
+        <p>Category: {{flashcard.category}}</p>
+        <p>Question: {{flashcard.question}}</p>
+        <p>Answer: {{flashcard.answer}}</p>
+        <button type="button" class="btn btn-primary btn-md edit" ng-click="editCard(flashcard)">
+            <span class="glyphicon glyphicon-edit"></span>
+        </button>
+        <button type="button" class="btn btn-danger btn-md delete" ng-click="removeFlashCard(flashcard)">
+            <span class="glyphicon glyphicon-remove"></span>
+        </button>
+    </div>
+</div>
