@@ -1,0 +1,24 @@
+<div class="container">
+    <form ng-submit='addFlashCard()'>
+        <h2 class='text-center'>Add flashcard</h2>
+        <div class="form-group">
+            <label for="">category</label>
+            <select class="selectpicker col-sm-12" ng-model ='newflashcard.category' required>
+              <option>Angular</option>
+              <option>History</option>
+              <option>Geography</option>
+              <option>General Knowledge</option>
+              <option>English</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="">question</label>
+            <input type="text" class='form-control' ng-model='newflashcard.question' required>
+        </div>
+        <div class="form-group">
+            <label for="">answer</label>
+            <textarea class="form-control" rows="5" id="comment" ng-model='newflashcard.answer' required></textarea>
+        </div>
+        <button type='submit' class='btn btn-primary submit'>Add Card</button>
+    </form>
+</div>
