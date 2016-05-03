@@ -9,29 +9,31 @@ var Flashcard = require('../models/flashcard');
 
 router.get('/', (req, res) => {
     Flashcard.find({}, (err, flashcards) => {
-        if(err){
+        if (err) {
             res.status(400).send(err);
-        }else{
+        } else {
             res.send(flashcards);
         }
     });
 });
-router.get('/:id', (req,res) => {
+router.get('/:id', (req, res) => {
     Flashcard.findById(req.params.id, (err, flashcard) => {
-        if(err){
+        if (err) {
             res.status(400).send(err);
-        }else{
+        } else {
             res.send(flashcard);
         }
     });
 });
-router.get('/categories/:category', (req,res) => {
+router.get('/categories/:category', (req, res) => {
     console.log(req.params.category);
-    Flashcard.find({'category': req.params.category}, (err, flashcards) => {
-        if(err){
+    Flashcard.find({
+        'category': req.params.category
+    }, (err, flashcards) => {
+        if (err) {
             res.status(400).send(err);
-        }else{
-            console.log('result:',flashcards);
+        } else {
+            console.log('result:', flashcards);
             res.send(flashcards);
         }
     });
@@ -39,9 +41,9 @@ router.get('/categories/:category', (req,res) => {
 router.delete('/:id', (req, res) => {
 
     Flashcard.findByIdAndRemove(req.params.id, (err, flashcard) => {
-        if(err){
+        if (err) {
             res.status(400).send(err);
-        }else{
+        } else {
             res.send();
         }
     });
@@ -50,22 +52,26 @@ router.delete('/:id', (req, res) => {
 router.post('/', (req, res) => {
     console.log(req.body);
     var flashcard = new Flashcard(req.body);
-    flashcard.save((err, savedFlashcard) =>{
-        if(err){
+    flashcard.save((err, savedFlashcard) => {
+        if (err) {
             res.status(400).send(err);
-        }else {
+        } else {
             res.send(savedFlashcard)
         }
     });
 });
 
-router.put('/:id', (req, res) =>{
+router.put('/:id', (req, res) => {
     //req.params.id ---> document id
     //req.body ---> update obj
-    Flashcard.findByIdAndUpdate(req.params.id, { $set: req.body}, { new:true},(err, flashcard)=> {
-        if(err){
+    Flashcard.findByIdAndUpdate(req.params.id, {
+        $set: req.body
+    }, {
+        new: true
+    }, (err, flashcard) => {
+        if (err) {
             res.status(400).send(err);
-        }else{
+        } else {
             res.send(flashcard);
         }
     })

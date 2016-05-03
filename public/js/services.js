@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('flashCard');
 
-app.service('Flashcard', function($http, $q){
+app.service('Flashcard', function($http, $q) {
     this.getAll = () => {
         return $http.get('/api/flashcards');
     };

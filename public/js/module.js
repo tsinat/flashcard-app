@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('flashCard', ['ui.router']);
 
-app.config(function($stateProvider, $urlRouterProvider){
+app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('home', {
             url: '/',
@@ -18,5 +18,5 @@ app.config(function($stateProvider, $urlRouterProvider){
             templateUrl: '/html/quiz.html',
             controller: 'quizCtrl'
         })
-        $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/');
 });

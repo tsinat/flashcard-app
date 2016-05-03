@@ -56,10 +56,9 @@ app.controller('falshcardCtrl', function($scope, Flashcard) {
     }
     $scope.formHide = true;
     $scope.hideMyForm = () => {
-        if($scope.formHide){
+        if ($scope.formHide) {
             $scope.formHide = false;
-        }
-        else{
+        } else {
             $scope.formHide = true;
         }
     }
@@ -76,10 +75,10 @@ app.controller('quizCtrl', function($scope, Flashcard) {
             })
     }
     $scope.myAnswer = true;
-    $scope.toggleAnswer =( ) => {
-        if($scope.myAnswer){
+    $scope.toggleAnswer = () => {
+        if ($scope.myAnswer) {
             $scope.myAnswer = false;
-        }else{
+        } else {
             $scope.myAnswer = true;
         }
     }
